@@ -30,6 +30,7 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')			// web
     testCompile('org.springframework.boot:spring-boot-starter-test')	// test
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')	// eureka-client
 }
 
 dependencyManagement {

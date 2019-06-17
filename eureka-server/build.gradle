@@ -33,7 +33,9 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')	// hystrix
     compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')	// ribbon
     compile('org.springframework.retry:spring-retry:1.2.2.RELEASE')	// retry
-    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')	// eureka-client
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')	// eureka-server
+	runtime('org.glassfish.jaxb:jaxb-runtime:2.3.0') // Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
+	runtime('javax.activation:activation:1.1.1') // Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
 }
 
 dependencyManagement {
