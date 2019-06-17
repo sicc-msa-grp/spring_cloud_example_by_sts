@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sicc.service.FeignWorkRemoteService;
 import com.sicc.service.WorkRemoteService;
 
 /**
@@ -17,6 +18,9 @@ import com.sicc.service.WorkRemoteService;
 public class MemberController {
 	
 	@Autowired
+	FeignWorkRemoteService feignWorkRemoteService; // feign 서비스 사용을 위해 추가
+	
+	@Autowired
 	WorkRemoteService workRemoteService;
 		
 	/**
@@ -26,7 +30,16 @@ public class MemberController {
 	 */
     @GetMapping(path = "/{memberId}") // path 설정 (http://localhost:8081/members/xxxx 로써 접근 가능)
     public String getMemberDetail(@PathVariable String memberId) {
-        String workInfo = workRemoteService.getWorkInfo("999");
+        //String workInfo = workRemoteService.getWorkInfo("999");
+    	String workInfo = getWorkInfo();
         return String.format("[member id = %s at %s %s ]", memberId, System.currentTimeMillis(), workInfo);
+    }
+    
+    /**
+     * feign사용 work 정보 함수
+     * @return 문자
+     */
+    private String getWorkInfo() {
+    	return feignWorkRemoteService.getWorkInfo("12345");
     }
 }
