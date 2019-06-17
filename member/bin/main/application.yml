@@ -23,4 +23,6 @@ hystrix:
 # ribbon
 work:
   ribbon:
-    listOfServers: localhost:8082
+    listOfServers: localhost:8082, localhost:7777
+    MaxAutoRetries: 0
+    MaxAutoRetriesNextServer: 1
