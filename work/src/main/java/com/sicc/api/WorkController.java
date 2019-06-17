@@ -21,13 +21,13 @@ public class WorkController {
 	 */
 	@RequestMapping(path = "/{workId}", method = RequestMethod.GET) // path 설정 (http://localhost:8082/works/xxxx 로써 접근 가능)
 	public String getWorkDetail(@PathVariable String workId) {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return "[work id = "+workId+" at "+System.currentTimeMillis()+"]";
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
+//		return "[work id = "+workId+" at "+System.currentTimeMillis()+"]";
 		//return String.format("[work id = %s at %s]", workId, System.currentTimeMillis());
-		//throw new RuntimeException("I/O ERROR"); // fallback 테스트를 위한 코드
+		throw new RuntimeException("I/O ERROR"); // fallback 테스트를 위한 코드
 	}
 }
