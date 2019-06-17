@@ -10,7 +10,6 @@ buildscript {
     }
 }
 
-// 스프링 클라우드 버젼 설정
 ext['springCloudVersion'] = 'Finchley.SR2'
 
 apply plugin: 'java'
@@ -33,7 +32,6 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')	// test
 }
 
-// 스프링 클라우드 버젼 적용
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
