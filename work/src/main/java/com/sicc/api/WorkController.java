@@ -20,6 +20,7 @@ public class WorkController {
 	 */
 	@GetMapping(path = "/{workId}") // path 설정 (http://localhost:8082/works/xxxx 로써 접근 가능)
 	public String getWorkDetail(@PathVariable String workId) {
-		return String.format("[work id = %s at %s]", workId, System.currentTimeMillis());
+		// return String.format("[work id = %s at %s]", workId, System.currentTimeMillis());
+		throw new RuntimeException("I/O ERROR"); // fallback 테스트를 위한 코드
 	}
 }
