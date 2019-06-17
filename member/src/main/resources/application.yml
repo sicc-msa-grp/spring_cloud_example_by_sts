@@ -6,3 +6,12 @@ server:
 spring:
   application:
     name: member
+    
+# hystrix timeout 시간조정 (1000 기본 -> 3000)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
