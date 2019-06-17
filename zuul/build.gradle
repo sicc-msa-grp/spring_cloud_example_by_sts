@@ -1,0 +1,42 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.7.RELEASE' // 스프링 부트 버젼
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+ext['springCloudVersion'] = 'Finchley.SR2'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.sicc'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8 // 자바 버젼
+
+// 디펜던시 저장소
+repositories {
+    mavenCentral()
+}
+
+// 스프링 부트 디펜던시 선언 부분
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')			// web
+    testCompile('org.springframework.boot:spring-boot-starter-test')	// test
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')			// zuul
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client') // eureka-client
+	compile('org.springframework.retry:spring-retry:1.2.2.RELEASE')					// retry
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}

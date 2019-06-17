@@ -1,0 +1,29 @@
+# 해당 프로젝트 명칭 선언
+spring:
+  application:
+    name: zuul
+
+# port 선언
+server:
+  port: 8765
+
+# zuul 설정
+zuul:
+  routes:
+    member:
+      path: /members/**
+      serviceId: member
+      strip-prefix: false
+    work:
+      path: /works/**
+      serviceId: work
+      strip-prefix: false
+
+# eureka 설정
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true #OS에서 제공하는 hostname대신 자신의 ip address를 사용
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
