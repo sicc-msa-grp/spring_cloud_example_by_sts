@@ -1,0 +1,8 @@
+# port 선언 (http://localhost:8081 로써 서버에 올라감)
+server:
+  port: 8081
+
+# 해당 프로젝트 명칭 선언
+spring:
+  application:
+    name: member
