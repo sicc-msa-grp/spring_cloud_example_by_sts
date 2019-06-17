@@ -27,7 +27,7 @@ public class WorkController {
 //			e.printStackTrace();
 //		}
 //		return "[work id = "+workId+" at "+System.currentTimeMillis()+"]";
-		//return String.format("[work id = %s at %s]", workId, System.currentTimeMillis());
-		throw new RuntimeException("I/O ERROR"); // fallback 테스트를 위한 코드
+		return String.format("[work id = %s at %s]", workId, System.currentTimeMillis());
+		//throw new RuntimeException("I/O ERROR"); // fallback 테스트를 위한 코드
 	}
 }

@@ -13,7 +13,8 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 @Service
 public class WorkRemoteServiceImpl implements WorkRemoteService {
 
-	public static final String URL = "http://localhost:8082/works/"; // 夸没且 URL 林家
+	//public static final String URL = "http://localhost:8082/works/"; // 夸没且 URL 林家
+	public static final String URL = "http://work/works/"; // 夸没且 URL 林家 函版
 	
 	@Autowired
 	private RestTemplate restTemplate;
