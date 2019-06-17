@@ -7,14 +7,16 @@ spring:
   application:
     name: member
     
-# hystrix timeout 시간조정 (1000 기본 -> 3000)
+# hystrix
 hystrix:
   command:
-    default:
+    workInfo:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 3000
-      circuitBreaker: # hystrix circuitBreaker
+            timeoutInMilliseconds: 3000 # 타임아웃 시간 조정 : 1000 -> 3000 (1초 -> 3초)
+      circuitBreaker: # circuitBreaker
         requestVolumeThreshold: 1
         errorThresholdPercentage: 50
+        sleepWindowInMilliseconds: 5000 # 한번 Circuit이 오픈되면 5초간 호출 차단 -> 5초 경과후 단 1개 호출 허용 (Half-Open)
+                                        # -> 성공시 Circuit을 다시 CLOSE, 여전히 실패시 Open을 5초 연장
