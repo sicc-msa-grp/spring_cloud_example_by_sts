@@ -1,0 +1,13 @@
+# server setting
+server:
+  port: 8083 # port setting
+  servlet:
+    context-path: /auth # 시작 path 셋팅
+
+# spring setting
+spring:
+  application: #application 명
+    name: oauth2 
+  devtools: #devtools 설정
+    livereload:
+      enabled: true
