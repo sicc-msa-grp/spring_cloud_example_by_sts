@@ -36,6 +36,7 @@ dependencies {
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')	// eureka-client
 	compile('org.springframework.cloud:spring-cloud-starter-openfeign') // feign
 	
+	compile('org.springframework.cloud:spring-cloud-security')			// spring-cloud-security
 	compile('org.springframework.boot:spring-boot-devtools')	// devtools
 }
 

@@ -1,0 +1,26 @@
+# server setting
+server:
+  port: 8084 # port setting
+
+# spring setting
+spring:
+  application: #application 명
+    name: org-service
+  devtools: #devtools 설정
+    livereload:
+      enabled: true
+  datasource: # postgres 설정
+    hikari:
+      maximum-pool-size: 4
+    url: jdbc:postgresql://localhost:5432/organization # 저희가 dB구축서버로 대신
+    username: postgres # 저희가 dB구축서버로 대신
+    password: wsl659372 # 저희가 dB구축서버로 대신
+  jpa: # 해결책에 의한 jpa 추가 => https://ryudaewan.wordpress.com/2018/02/08/pgsql_jpa/
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+
+# security 설정 (콜백 URL은 /auth/user 엔드포인트)
+security:  oauth2:    resource:      user-info-uri: http://localhost:8083/auth/user
+      

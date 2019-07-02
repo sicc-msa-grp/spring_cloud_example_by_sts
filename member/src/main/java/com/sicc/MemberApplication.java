@@ -2,6 +2,7 @@ package com.sicc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2ClientAutoConfiguration;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
@@ -20,11 +21,19 @@ import org.springframework.web.client.RestTemplate;
 public class MemberApplication {
 	
 	// RestTemplate 추가
+/*
 	@LoadBalanced // ribbon 사용을 위한 어노테이션 추가
 	@Bean
 	public RestTemplate restTemplate() {
 		return new RestTemplate();
 	}
+*/
+	@LoadBalanced // ribbon 사용을 위한 어노테이션 추가
+	@Bean
+	/*
+	 * public OAuth2RestTemplate restTemplate() { return
+	 * OAuth2ClientAutoConfiguration. }
+	 */
 	
     public static void main(String[] args) {
         SpringApplication.run(MemberApplication.class);

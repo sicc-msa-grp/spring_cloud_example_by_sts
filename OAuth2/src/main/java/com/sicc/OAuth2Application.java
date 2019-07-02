@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController				// Rest 컨트롤러 역할
+
 @EnableResourceServer		// 자원서버
+
 @EnableAuthorizationServer	// 인증서버
+
 @SpringBootApplication
 public class OAuth2Application {
 

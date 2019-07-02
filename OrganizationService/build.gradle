@@ -1,0 +1,54 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.7.RELEASE' // 스프링 부트 버젼
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+ext['springCloudVersion'] = 'Finchley.SR2'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.sicc'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8 // 자바 버젼
+
+// 디펜던시 저장소
+repositories {
+    mavenCentral()
+}
+
+// 스프링 부트 디펜던시 선언 부분
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')			// web
+    testCompile('org.springframework.boot:spring-boot-starter-test')	// test
+    
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')	// hystrix
+	compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')	// eureka-client
+	compile('org.springframework.cloud:spring-cloud-security')	// spring-cloud-security
+	
+	compile('org.springframework.boot:spring-boot-starter-data-jpa') // jpa => 하이버네이트
+	compile('org.postgresql:postgresql:42.2.4') // postgresql 로컬 DB 
+	compile('org.springframework.boot:spring-boot-starter-jdbc') // jdbc
+	compile('org.javassist:javassist:3.23.1-GA')	// https://blog.naver.com/PostView.nhn?blogId=spdlqjdudghl&logNo=221438013115&categoryNo=0&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+													// jpa 연동오류로 인한 추가
+	
+	compile('org.glassfish.jaxb:jaxb-runtime:2.3.0') // Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
+	compile('javax.activation:activation:1.1.1')	 // Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
+   	compile('org.springframework.boot:spring-boot-devtools')	// devtools
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+

@@ -18,6 +18,12 @@ zuul:
       path: /works/**
       serviceId: work
       strip-prefix: false
+      
+    org-service:
+      path: /organizations/**
+      sensitiveHeaders: Cookie, Set-Cookie #,Authorization OAuth 토큰 이동을 위해서
+      serviceId: org-service
+      strip-prefix: false
 
 # eureka 설정
 eureka:
