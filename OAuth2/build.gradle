@@ -30,11 +30,15 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')			// web
     testCompile('org.springframework.boot:spring-boot-starter-test')	// test
-
 	compile('org.springframework.cloud:spring-cloud-security')			// spring-cloud-security
 	compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')					// Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
 	compile('javax.activation:activation:1.1.1')						// Java10 Spring Boot프로젝트에서 BootRun 실행시 추가
 	compile('org.springframework.boot:spring-boot-devtools')			// devtools
+	
+	compile('org.springframework.security:spring-security-jwt:1.0.10.RELEASE') // jwt
+	compile('org.springframework.boot:spring-boot-starter-data-jpa') // jpa
+	compile('org.javassist:javassist:3.25.0-GA') // jpa 오류 해결을 위해 (Could not get constructor for org.hibernate.persister.entity.SingleTableEntityPersister) // https://kimyhcj.tistory.com/295
+	compile('org.postgresql:postgresql:42.2.4') // postgreSQL
 }
 
 dependencyManagement {

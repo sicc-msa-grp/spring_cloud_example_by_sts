@@ -33,8 +33,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         auth
 			.inMemoryAuthentication()
 			.passwordEncoder(encoder)
-			.withUser("msa_team").password(encoder.encode("msateampassword")).roles("USER") // msa_team계정은 USER역할
+			.withUser("msa_team").password(encoder.encode("password1")).roles("USER") // msa_team계정은 USER역할
 			.and()
-			.withUser("msa_team_leader").password(encoder.encode("msateamleaderpassword")).roles("USER", "ADMIN"); // msa_team_leader계정은 USER, ADMIN 역할
+			.withUser("msa_team_leader").password(encoder.encode("password2")).roles("USER", "ADMIN"); // msa_team_leader계정은 USER, ADMIN 역할
     }		
 }

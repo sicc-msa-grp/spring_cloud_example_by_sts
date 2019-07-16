@@ -11,3 +11,17 @@ spring:
   devtools: #devtools 설정
     livereload:
       enabled: true
+  datasource: #postgreSQL
+    url: jdbc:postgresql://localhost:5432/jwt
+    username: postgres
+    password: wsl659372
+  jpa: # 해결책에 의한 jpa 추가 => https://ryudaewan.wordpress.com/2018/02/08/pgsql_jpa/
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false    
+          
+#대칭키
+signing:
+  key: '345345fsdgsf5345'
+  
